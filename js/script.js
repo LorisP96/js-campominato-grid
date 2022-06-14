@@ -31,7 +31,7 @@ if (difficulty === '1') {
 } else if (difficulty === '2') {
     nNumbers = 81;
 } else if (difficulty === '3') {
-    nNumbers = 17;
+    nNumbers = 49;
 }
 
 // genero i numeri nell'array (funzione)
