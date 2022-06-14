@@ -31,7 +31,7 @@ if (difficulty === '1') {
 } else if (difficulty === '2') {
     nNumbers = 81;
 } else if (difficulty === '3') {
-    nNumbers = 49;
+    nNumbers = 17;
 }
 
 // genero i numeri nell'array (funzione)
@@ -41,6 +41,8 @@ console.log(nades);
 
 // numero tentativi possibili
 let numTry = nNumbers - 16; 
+
+console.log(numTry)
 
 let userArray = [];
 
@@ -53,18 +55,15 @@ while (gameOver === true) {
     // se è incluso tra le bombe hai perso
     if (nades.includes(userNumber)) {
         gameOver = false;
-        alert('hai perso');
+        alert(`hai perso, il tuo punteggio è ${userArray.length}`);
         // e se non è inserito tra le bombe lo inserisco nell'array del giocatore
-    } else if (!nades.includes(userNumber)) {
+    } else if (!nades.includes(userNumber) && !userArray.includes(userNumber)) {
         // sempre se non è già stato inserito
-        if (!userArray.includes(userNumber)) {
-
-            userArray.push(userNumber);
+        userArray.push(userNumber);
+        if (userArray.length === numTry) {
+            gameOver = false;
+            alert('Hai vinto!');
         }
-
-    } else if (userArray.length < numTry) {
-        gameOver = false;
-        alert('hai finito i tentativi rimasti per vincere')
     }
 }
 console.log(userArray)
