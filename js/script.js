@@ -44,10 +44,11 @@ while (gameOver === true) {
     if (nades.includes(userNumber)) {
         gameOver = false;
         alert(`hai perso, il tuo punteggio è ${userArray.length}`);
-        // e se non è inserito tra le bombe lo inserisco nell'array del giocatore
+        // e se non è inserito tra le bombe lo inserisco nell'array del giocatore, sempre se non è già stato inserito
     } else if (!nades.includes(userNumber) && !userArray.includes(userNumber)) {
-        // sempre se non è già stato inserito
+        
         userArray.push(userNumber);
+        // e se ho raggiunto il numero massimo di tentativi ha vinto
         if (userArray.length === numTry) {
             gameOver = false;
             alert('Hai vinto!');
